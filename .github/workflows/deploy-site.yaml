@@ -1,8 +1,8 @@
-name: Build & Deploy nsftwr.com
+name: Build & Deploy laura-naumenko.com
 on: 
   push:
     branches:
-      - gh-pages
+      - main
 permissions:
   contents: read
   pages: write
@@ -16,13 +16,8 @@ jobs:
       - name: Build Main Site
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./main
+          source: .
           destination: ./output/
-      - name: Build Blog Site
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./blog
-          destination: ./output/blog
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
